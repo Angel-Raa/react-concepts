@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Angel",
+            "email": "angel.@gmail.com"
+        },
+        {
+            "id": 2,
+            "name": "jose",
+            "email": "jose.@gmail.com"
+        },
+        {
+            "id": 3,
+            "name": "maira",
+            "email": "maira.@gmail.com"
+        },
+        {
+            "id": 4,
+            "name": "alba",
+            "email": "alba.@gmail.com"
+        },
+        {
+            "id": 5,
+            "name": "john Don",
+            "email": "john.@gmail.com"
+        },
+        {
+            "id": 6,
+            "name": "Gabriela",
+            "email": "gabriela.@gmail.com"
+        }
+    ]
+}
