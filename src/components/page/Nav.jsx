@@ -12,6 +12,9 @@ export const Nav = () => {
         <Link to="/contact" className="text-white hover:underline mx-2">
           Contact
         </Link>
+        <Link to="/products" className="text-white hover:underline mx-2">
+          Product
+        </Link>
       </nav>
 
     
