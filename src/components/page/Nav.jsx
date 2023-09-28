@@ -15,6 +15,12 @@ export const Nav = () => {
         <Link to="/products" className="text-white hover:underline mx-2">
           Product
         </Link>
+
+        <Link to="/counter">
+          <button className="bg-blue-500 text-white px-2 py-1 rounded-md">
+          counter
+          </button>
+        </Link>
       </nav>
 
     
