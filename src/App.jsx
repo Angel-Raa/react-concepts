@@ -1,16 +1,17 @@
-import {BrowserRouter , Routes, Route} from "react-router-dom";
-import { Home } from "./components/page/Home";
-import { Nav } from "./components/page/Nav";
-import { About } from "./components/page/About";
-import { Contact } from "./components/page/Contact";
-import { Error404 } from "./components/page/Error404";
-import { Product } from "./components/page/Product";
-import { ProductDetails } from "./components/page/ProductDetails";
-import { Counter } from "./components/Memorizacion/Counter";
+import { Page } from "./Context/Page";
+
 function App() {
   return (
     <div>
-      <BrowserRouter>
+     <Page />
+    </div>
+  );
+}
+
+export default App;
+
+/*
+ <BrowserRouter>
       <Nav/>
        <Routes>
             <Route path="/"  element={<Home/>}/>
@@ -22,8 +23,5 @@ function App() {
             <Route path="*" element={<Error404/>}/ >
        </Routes>
       </BrowserRouter>
-    </div>
-  );
-}
-
-export default App;
+      
+*/
