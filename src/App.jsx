@@ -1,9 +1,9 @@
-import { Page } from "./Context/Page";
+import { Crud } from "./crud/Crud";
 
 function App() {
   return (
     <div>
-     <Page />
+     <Crud />
     </div>
   );
 }

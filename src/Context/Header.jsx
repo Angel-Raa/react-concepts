@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "../Context/estilos.css";
 export const Header = ({ theme, handlerTheme }) => {
   return (
