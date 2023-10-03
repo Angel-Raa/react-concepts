@@ -1,43 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form } from "./Form";
 import { Table } from "./Table";
-const initialDb = [
-  {
-    id: 1,
-    name: "Rick",
-    age: 30,
-    email: "rick.gmail.com",
-  },
-  {
-    id: 2,
-    name: "Morty",
-    age: 15,
-    email: "morty.gmail.com",
-  },
-  {
-    id: 3,
-    name: "Beth",
-    age: 30,
-    email: "beth.gmail.com",
-  },
-];
+import { helpHttp } from "../helper/helpHttp";
+import { Loader } from "../components/page/Loader";
+import { Message } from "../components/page/Message";
+
 export const Crud = () => {
-  const [datas, setData] = useState(initialDb);
+  const [error, setError] = useState(null); //
+  const [loading, setLoading] = useState(false); //s
+  const [datas, setData] = useState({
+    id: null,
+    name: "",
+    age: "",
+    email: "",
+  });
   const [dataToEdit, setDataToEdit] = useState(null);
+  const api = helpHttp();
+  const url = "http://localhost:5000/users";
+  useEffect(() => {
+    setLoading(true);
+    api
+      .get(url)
+      .then((res) => {
+        setData(res);
+        setError(null)
+
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err);
+        setData([]);
+      });
+      setLoading(false);
+  }, [url]);
   const createData = (db) => {
     db.id = Date.now();
+
     setData([...datas, db]);
   };
   const updateData = (db) => {
-    let newData = datas.map((it) => it.id === db.id ? db : it);
+    let newData = datas.map((it) => (it.id === db.id ? db : it));
     setData(newData);
-
   };
   const deleteData = (id) => {
     let deleteData = datas.filter((it) => it.id !== id);
     setData(deleteData);
-    
-  
   };
   return (
     <>
@@ -51,11 +59,14 @@ export const Crud = () => {
           setDataToEdit={setDataToEdit}
         />
         {/* Table */}
+        {loading && <Loader/>}
+        {error && <Message error={`Error ${error.status} : ${error.statusText}`} bgColor="#dc3545"/>}
         <Table
           datas={datas}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
         />
+      
       </div>
     </>
   );

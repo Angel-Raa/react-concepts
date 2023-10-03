@@ -1,4 +1,4 @@
- const framework = [
+export const framework = [
   {
     id: 1,
     name: " React js",
@@ -76,5 +76,23 @@
   },
 ];
 
-
-export default framework;
+export const initialDb = [
+  {
+    id: 1,
+    name: "Rick",
+    age: 30,
+    email: "rick.gmail.com",
+  },
+  {
+    id: 2,
+    name: "Morty",
+    age: 15,
+    email: "morty.gmail.com",
+  },
+  {
+    id: 3,
+    name: "Beth",
+    age: 30,
+    email: "beth.gmail.com",
+  },
+];
