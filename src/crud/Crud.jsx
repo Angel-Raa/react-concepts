@@ -23,7 +23,7 @@ export const Crud = () => {
       .get(url)
       .then((res) => {
         setData(res);
-        setError(null)
+        setError(null);
 
         console.log(res);
       })
@@ -32,18 +32,53 @@ export const Crud = () => {
         setError(err);
         setData([]);
       });
-      setLoading(false);
+    setLoading(false);
   }, [url]);
   const createData = (db) => {
     db.id = Date.now();
-
-    setData([...datas, db]);
+    api
+      .post(url, { body: db })
+      .then((res) => {
+        console.log(res);
+        setData([...datas, res]);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err);
+        setData([]);
+      });
   };
   const updateData = (db) => {
-    let newData = datas.map((it) => (it.id === db.id ? db : it));
-    setData(newData);
+    let endPoint = `${url}/${db.id}`;
+    console.log(endPoint);
+    api
+      .put(endPoint, {
+        body: db,
+      })
+      .then((res) => {
+        console.log(res);
+        setData(datas.map((it) => (it.id === db.id ? db : it)));
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err);
+        setData([]);
+      });
+    //let newData = datas.map((it) => (it.id === db.id ? db : it));
+    // setData(newData);
   };
   const deleteData = (id) => {
+    let endPoint = `${url}/${id}`;
+    api
+      .del(endPoint)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err);
+        setData([]);
+      });
     let deleteData = datas.filter((it) => it.id !== id);
     setData(deleteData);
   };
@@ -59,14 +94,18 @@ export const Crud = () => {
           setDataToEdit={setDataToEdit}
         />
         {/* Table */}
-        {loading && <Loader/>}
-        {error && <Message error={`Error ${error.status} : ${error.statusText}`} bgColor="#dc3545"/>}
+        {loading && <Loader />}
+        {error && (
+          <Message
+            error={`Error ${error.status} : ${error.statusText}`}
+            bgColor="#dc3545"
+          />
+        )}
         <Table
           datas={datas}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
         />
-      
       </div>
     </>
   );

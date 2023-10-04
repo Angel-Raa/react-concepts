@@ -1,6 +1,7 @@
 export const helpHttp = () => {
   const customFetch = async (endpoint, options) => {
     const defaultHeaders = {
+      "Content-Type": "application/json",
       accept: "application/json",
     };
     const controller = new AbortController();
@@ -16,10 +17,10 @@ export const helpHttp = () => {
       res.ok
         ? res.json()
         : Promise.reject({
-          err: true,
-          status: res.status || "00",
-          statusText: res.statusText || "Ocurrión un error",
-        })
+            err: true,
+            status: res.status || "00",
+            statusText: res.statusText || "Ocurrión un error",
+          })
     );
   };
 

@@ -1,52 +1,52 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Angel",
-            "age": 22,
-            "email": "angel.@gmail.com"
-        },
-        {
-            "id": 2,
-            "name": "jose",
-            "age": 24,
-            "email": "jose.@gmail.com"
-        },
-        {
-            "id": 3,
-            "name": "maira",
-            "age": 26,
-            "email": "maira.@gmail.com"
-        },
-        {
-            "id": 4,
-            "name": "alba",
-            "age": 27,
-            "email": "alba.@gmail.com"
-        },
-        {
-            "id": 5,
-            "name": "john Don",
-            "age": 21,
-            "email": "john.@gmail.com"
-        },
-        {
-            "id": 6,
-            "name": "Gabriela",
-            "age": 28,
-            "email": "gabriela.@gmail.com"
-        },
-        {
-            "id": 7,
-            "name": "Rick",
-            "age": 48,
-            "email": "rick.@gmail.com"
-        },
-        {
-            "id": 8,
-            "name": "Morty",
-            "age": 20,
-            "email": "Morty.@gmail.com"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Angel",
+      "age": 22,
+      "email": "angel.@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "maira ",
+      "age": "27",
+      "email": "maira.@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "alba",
+      "age": 27,
+      "email": "alba.@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "john Don",
+      "age": 21,
+      "email": "john.@gmail.com"
+    },
+    {
+      "id": 6,
+      "name": "Gabriela",
+      "age": 28,
+      "email": "gabriela.@gmail.com"
+    },
+    {
+      "id": 7,
+      "name": "Rick",
+      "age": 48,
+      "email": "rick.@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "Morty",
+      "age": 20,
+      "email": "Morty.@gmail.com"
+    },
+    {
+      "id": 1696430546116,
+      "name": "Angel Aguero",
+      "age": "21",
+      "email": "angelagueror23@gmail.com"
+    }
+  ]
 }

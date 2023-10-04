@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export const Message = ({ error, bgColor }) => {
   let styles = {
     padding: "1rem",
