@@ -1,16 +1,28 @@
 /* eslint-disable react/prop-types */
-import "../Context/estilos.css";
-export const Header = ({ theme, handlerTheme }) => {
+import "../sin-context/estilos.css";
+export const Header = ({
+  theme,
+  handlerTheme,
+  translation,
+  handlerLenguage,
+  handlerAuth,
+  auth,
+}) => {
   return (
     <>
       <div className={theme}>
         <div className="container mx-auto py-4">
           <header className="flex items-center justify-between">
-            <h1 className="text-3xl font-semibold">Header</h1>
+            <h1 className="text-3xl font-semibold">
+              {translation.headerTitle}
+            </h1>
             <div className="space-x-4">
-              <select className="bg-white text-black rounded p-2">
-                <option value="EN">English</option>
-                <option value="ES">Spanish</option>
+              <select
+                className="bg-white text-black rounded p-2"
+                onChange={handlerLenguage}
+              >
+                <option value="es">Spanish</option>
+                <option value="en">English</option>
               </select>
               <div className="flex items-center space-x-2">
                 <input
@@ -23,7 +35,7 @@ export const Header = ({ theme, handlerTheme }) => {
                   onClick={handlerTheme}
                 />
                 <label htmlFor="light" className="mr-4">
-                  Claro
+                  {translation.headerLight}
                 </label>
                 <input
                   type="radio"
@@ -33,12 +45,18 @@ export const Header = ({ theme, handlerTheme }) => {
                   className="mr-1"
                   onClick={handlerTheme}
                 />
-                <label htmlFor="dark">Oscuro</label>
+                <label htmlFor="dark">{translation.headerDark}</label>
               </div>
             </div>
-            <button className="bg-blue-700 text-white px-4 py-2 rounded">
-              Iniciar Sesión
-            </button>
+            {auth ? (
+              <button className="bg-blue-700 text-white px-4 py-2 rounded" onClick={handlerAuth}>
+                {translation.buttonLogin}
+              </button>
+            ) : (
+              <button className="bg-blue-700 text-white px-4 py-2 rounded" onClick={handlerAuth}>
+                {translation.buttonLogout}
+              </button>
+            )}
           </header>
         </div>
       </div>
