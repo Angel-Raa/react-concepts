@@ -1,5 +1,10 @@
+import ThemeContext from "../context/ThemeContext";
+import { useContext } from "react";
+import TranslationContext from "../context/TranslationContext";
 /* eslint-disable react/prop-types */
-export const Footer = ({ theme, translation }) => {
+export const Footer = () => {
+  const {theme} = useContext(ThemeContext);
+  const {translation} = useContext(TranslationContext);
   return (
     <>
       <div className={theme}>

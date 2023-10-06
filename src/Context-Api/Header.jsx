@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import "../sin-context/estilos.css";
-export const Header = ({
-  theme,
-  handlerTheme,
-  translation,
-  handlerLenguage,
-  handlerAuth,
-  auth,
-}) => {
+import ThemeContext from "../context/ThemeContext";
+import TranslationContext from "../context/TranslationContext";
+import AuthContext from "../context/AuthContext";
+export const Header = () => {
+  const { theme, handlerTheme } = useContext(ThemeContext);
+  const { translation, handlerLenguage } = useContext(TranslationContext);
+  const {auth, handlerAuth} = useContext(AuthContext);
   return (
     <>
       <div className={theme}>
@@ -49,11 +49,17 @@ export const Header = ({
               </div>
             </div>
             {auth ? (
-              <button className="bg-blue-700 text-white px-4 py-2 rounded" onClick={handlerAuth}>
+              <button
+                className="bg-blue-700 text-white px-4 py-2 rounded"
+                onClick={handlerAuth}
+              >
                 {translation.buttonLogin}
               </button>
             ) : (
-              <button className="bg-blue-700 text-white px-4 py-2 rounded" onClick={handlerAuth}>
+              <button
+                className="bg-blue-700 text-white px-4 py-2 rounded"
+                onClick={handlerAuth}
+              >
                 {translation.buttonLogout}
               </button>
             )}

@@ -1,5 +1,14 @@
+import ThemeContext from "../context/ThemeContext";
+import { useContext } from "react";
+import TranslationContext from "../context/TranslationContext";
+import AuthContext from "../context/AuthContext";
 /* eslint-disable react/prop-types */
-export const Main = ({ theme, translation, auth }) => {
+
+export const Main = () => {
+  const { theme } = useContext(ThemeContext);
+  const { translation } = useContext(TranslationContext);
+  const { auth } = useContext(AuthContext);
+
   return (
     <>
       <div className={theme}>
