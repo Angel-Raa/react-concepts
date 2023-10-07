@@ -1,11 +1,16 @@
-import { PageContext } from "./Context-Api/Page";
+import { CrudProvider } from "./crud-context-api/context/CrudContext";
+import { Crud } from "./crud-context-api/crud/Crud";
+
 
 
 
 function App() {
   return (
     <>
-      <PageContext />
+    <CrudProvider>
+    <Crud />
+    </CrudProvider>
+   
     </>
   );
 }

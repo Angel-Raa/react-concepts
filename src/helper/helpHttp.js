@@ -40,10 +40,16 @@ export const helpHttp = () => {
     return await customFetch(url, options);
   };
 
+  const patch = async (url, options = {}) => {
+    options.method = "PATCH";
+    return await customFetch(url, options);
+  };
+
   return {
     get,
     post,
     put,
     del,
+    patch,
   };
 };
