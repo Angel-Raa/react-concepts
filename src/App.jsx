@@ -1,16 +1,15 @@
-import { CrudProvider } from "./crud-context-api/context/CrudContext";
-import { Crud } from "./crud-context-api/crud/Crud";
-
-
-
+import { Counter } from "./reducers/components/Counter";
 
 function App() {
   return (
     <>
-    <CrudProvider>
+      {/*
+      <CrudProvider>
     <Crud />
     </CrudProvider>
-   
+    */}
+
+    <Counter />
     </>
   );
 }
