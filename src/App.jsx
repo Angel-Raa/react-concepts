@@ -1,4 +1,5 @@
-import { Counter } from "./reducers/components/Counter";
+import { ShoppingCart } from "./Shopping-Cart/ShoppingCart";
+
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
     </CrudProvider>
     */}
 
-    <Counter />
+    <ShoppingCart/>
     </>
   );
 }
