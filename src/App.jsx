@@ -1,5 +1,4 @@
-import { ShoppingCart } from "./Shopping-Cart/ShoppingCart";
-
+import { Crud } from "./crud-reducers/Crud";
 
 function App() {
   return (
@@ -8,9 +7,11 @@ function App() {
       <CrudProvider>
     <Crud />
     </CrudProvider>
+    <ShoppingCart/>
     */}
 
-    <ShoppingCart/>
+<Crud/>
+    
     </>
   );
 }
