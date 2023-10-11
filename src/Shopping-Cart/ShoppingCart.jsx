@@ -23,8 +23,24 @@ export const ShoppingCart = () => {
     });
   };
 
-  const deleteFromCart = () => {};
-  const clearCart = () => {};
+  const deleteFromCart = (productId, all = false) => {
+    if (all) {
+      dispatch({
+        type: TYPES.REMOVE_ALL_FROM_CART,
+        payload: productId,
+      });
+    } else {
+      dispatch({
+        type: TYPES.REMOVE_ONE_FROM_CAR,
+        payload: productId,
+      });
+    }
+  };
+  const clearCart = () => {
+    dispatch({
+      type: TYPES.CLEAR_CART,
+    });
+  };
   return (
     <>
       <div className="bg-gray-200 p-4">
