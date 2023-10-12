@@ -24,19 +24,11 @@ export const Table = ({ datas, setDataToEdit, deleteData }) => {
             </tr>
           </thead>
           <tbody>
-            {datas.length > 0 ? (
-              <TableRow
-                datas={datas}
-                setDataToEdit={setDataToEdit}
-                deleteData={deleteData}
-              />
-            ) : (
-              <tr className="table__empty-row">
-                <td colSpan="4" className="text-center py-2">
-                  No Hay Datos
-                </td>
-              </tr>
-            )}
+            <TableRow
+              datas={datas}
+              setDataToEdit={setDataToEdit}
+              deleteData={deleteData}
+            />
           </tbody>
         </table>
       </div>

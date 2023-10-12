@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 export const TableRow = ({ datas, setDataToEdit, deleteData }) => {
   return (
-    
     <>
       {datas.map((data) => (
-        <tr key={data.id} className="table__row">
+        <tr key={data.id} className="table__row ">
           <td className="table__cell px-4 py-2">{data.name}</td>
           <td className="table__cell px-4 py-2">{data.age}</td>
           <td className="table__cell px-4 py-2">{data.email}</td>

@@ -1,21 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { Form } from "./Form";
 import { Table } from "./Table";
 import { helpHttp } from "../helper/helpHttp";
 import { Loader } from "../components/page/Loader";
 import { Message } from "../components/page/Message";
+import { CrudInitialState, CrudReducer } from "../reducers/reducer/CrudReducer";
+import { TYPES } from "../reducers/actions/CrudActions";
 
 export const Crud = () => {
+  const [state, dispath] = useReducer(CrudReducer, CrudInitialState);
+  const { datas } = state;
   const [error, setError] = useState(null); //
   const [loading, setLoading] = useState(false); //s
   const [dataToEdit, setDataToEdit] = useState(null);
-  const [datas, setData] = useState({
+  /**
+   *  const [datas, setData] = useState({
     id: null,
     name: "",
     age: "",
     email: "",
   });
-  
+   */
+
   const api = helpHttp();
   const url = "http://localhost:5000/users";
   useEffect(() => {
@@ -23,7 +29,7 @@ export const Crud = () => {
     api
       .get(url)
       .then((res) => {
-        setData(res);
+       // setData(res);
         setError(null);
 
         console.log(res);
@@ -31,7 +37,7 @@ export const Crud = () => {
       .catch((err) => {
         console.log(err.message);
         setError(err);
-        setData([]);
+      //  setData([]);
       });
     setLoading(false);
   }, [url]);
@@ -41,12 +47,16 @@ export const Crud = () => {
       .post(url, { body: db })
       .then((res) => {
         console.log(res);
-        setData([...datas, res]);
+        dispath({
+          type: TYPES.CREATE_DATA,
+          payload: res,
+        });
+        //  setData([...datas, res]);
       })
       .catch((err) => {
         console.log(err.message);
         setError(err);
-        setData([]);
+        //  setData([]);
       });
   };
   const updateData = (db) => {
@@ -58,12 +68,12 @@ export const Crud = () => {
       })
       .then((res) => {
         console.log(res);
-        setData(datas.map((it) => (it.id === db.id ? db : it)));
+        // setData(datas.map((it) => (it.id === db.id ? db : it)));
       })
       .catch((err) => {
         console.log(err.message);
         setError(err);
-        setData([]);
+        //  setData([]);
       });
     //let newData = datas.map((it) => (it.id === db.id ? db : it));
     // setData(newData);
@@ -78,10 +88,10 @@ export const Crud = () => {
       .catch((err) => {
         console.log(err.message);
         setError(err);
-        setData([]);
+        //  setData([]);
       });
     let deleteData = datas.filter((it) => it.id !== id);
-    setData(deleteData);
+    //setData(deleteData);
   };
   return (
     <>
@@ -102,11 +112,19 @@ export const Crud = () => {
             bgColor="#dc3545"
           />
         )}
-        <Table
-          datas={datas}
-          setDataToEdit={setDataToEdit}
-          deleteData={deleteData}
-        />
+        {datas ? (
+          <Table
+            datas={datas}
+            setDataToEdit={setDataToEdit}
+            deleteData={deleteData}
+          />
+        ) : (
+          <tr className="table__empty-row">
+            <td colSpan="4" className="text-center py-2">
+              No Hay Datos
+            </td>
+          </tr>
+        )}
       </div>
     </>
   );

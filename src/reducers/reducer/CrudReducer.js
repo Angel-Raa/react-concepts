@@ -1,15 +1,15 @@
 import { TYPES } from "../actions/CrudActions";
 
 export const CrudInitialState = {
-  id: null,
-  name: "",
-  age: "",
-  email: "",
+ datas:null
 };
 export const CrudReducer = (state, action = {}) => {
   switch (action.type) {
     case TYPES.READ_ALL_DATA: {
-      return 1;
+      return {
+        state,
+        datas: action.payload.map((data) => data),
+      };
     }
     case TYPES.READ_ONE_DATA: {
       return 2;
