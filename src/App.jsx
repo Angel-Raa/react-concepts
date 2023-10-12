@@ -1,4 +1,4 @@
-import { Crud } from "./crud-reducers/Crud";
+import {Crud} from "./crud/Crud.jsx"
 
 function App() {
   return (
@@ -9,8 +9,7 @@ function App() {
     </CrudProvider>
     <ShoppingCart/>
     */}
-
-<Crud/>
+    <Crud/>
     
     </>
   );

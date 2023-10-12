@@ -24,7 +24,8 @@ const validationsForm = (form) => {
   }
   if (!form.comments) {
     error.comments = "El comentario es requerido";
-  }
+  } isPending,
+    response,
   return error;
 };
 
