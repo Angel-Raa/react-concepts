@@ -3,12 +3,6 @@ import {Crud} from "./crud/Crud.jsx"
 function App() {
   return (
     <>
-      {/*
-      <CrudProvider>
-    <Crud />
-    </CrudProvider>
-    <ShoppingCart/>
-    */}
     <Crud/>
     
     </>
